@@ -1,0 +1,15 @@
+<h1>Portfolio Items</h1>
+<%
+=begin%>
+if no equal sign it processes the ruby but doesn't render on the page so use p tag w= to render each part
+image_tag takes url and renders image for us
+<%
+=end%>
+<%= link_to "Create New Item", new_portfolio_path %>
+<% @portfolio_items.each do |portfolio_item| %>
+<p><%=portfolio_item.title %></p>
+<p><%=portfolio_item.subtitle %></p>
+<p><%=portfolio_item.body %></p>
+<p><%= image_tag portfolio_item.thumb_image if !portfolio_item.thumb_image.nil? %></p>
+<%= link_to "Edit", edit_portfolio_path(portfolio_item.id) %>
+<%end %>
