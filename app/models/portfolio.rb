@@ -1,4 +1,5 @@
 class Portfolio < ApplicationRecord
+  includes Placeholder
   validates_presence_of :title, :body, :main_image, :thumb_image
 
   def self.ruby
@@ -12,7 +13,7 @@ class Portfolio < ApplicationRecord
 
   def set_defaults
     # for the portfolios main image 
-    self.main_image ||= "http://placehold.it/600x400"
-    self.thumb_image ||= "http://placehold.it/350x300"
+    self.main_image ||= Placeholder.image_generator(height: '400', width: '600')
+    self.thumb_image ||= Placeholder.image_generator(height: '350', width: '300')
   end
 end
