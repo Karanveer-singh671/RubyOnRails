@@ -5,11 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+5.times do |topic|
+  Topic.create!(
+    title: "Topic #{topic}"
+  )
+end
 
 10.times do |blog|
   Blog.create!(
     title: "My Blog Post #{blog}",
-    body: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati, minus consectetur. Tempora pariatur odit, nam at nesciunt ullam quae itaque fugiat iure? Deserunt vitae animi iure, reiciendis dolore placeat officiis."
+    body: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati, minus consectetur. Tempora pariatur odit, nam at nesciunt ullam quae itaque fugiat iure? Deserunt vitae animi iure, reiciendis dolore placeat officiis.",
+    topic_id: Topic.last.id
   )
 end
 
@@ -24,7 +30,7 @@ end
 
 puts "5 skills created"
 
-9.times do |portfolio_item|
+8.times do |portfolio_item|
   Portfolio.create!(
     title: "Portfolio Title #{portfolio_item}",
     subtitle: "My Service",
