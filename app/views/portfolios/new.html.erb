@@ -1,5 +1,11 @@
 <h1>Create a new Portfolio Item</h1>
-<%= form_with(model: @portfolio_items) do |form| %>
+<%
+=begin%>
+form_with will submit form at current route so need ot change since at create will do not new
+<%
+=end%>
+
+<%= form_with url: "/portfolios", model: @portfolio_item, method: :post do |form| %>
 
 <div class="field">
   <%= form.label :title %>
