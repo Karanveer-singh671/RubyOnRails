@@ -1,28 +1,26 @@
 <h1>Create a new Portfolio Item</h1>
-<%
-=begin%>
-form_with will submit form at current route so need ot change since at create will do not new
-<%
-=end%>
+<%# form_with will submit form at current route so need ot change since
+at create will do not new  %>
+<%= form_with url: "/portfolios", model:
+@portfolio_item, method: :post do |form| %>
 
-<%= form_with url: "/portfolios", model: @portfolio_item, method: :post do |form| %>
-
-<div class="field">
-  <%= form.label :title %>
-  <%= form.text_field :title %>
-</div>
+<div class="field"><%= form.label :title %> <%= form.text_field :title %></div>
 
 <div class="field">
-  <%= form.label :subtitle %>
-  <%= form.text_area :subtitle %>
+	<%= form.label :subtitle %> <%= form.text_area :subtitle %>
 </div>
 
-<div class="field">
-  <%= form.label :body %>
-  <%= form.text_area :body %>
-</div>
+<div class="field"><%= form.label :body %> <%= form.text_area :body %></div>
 
-<div class="actions">
-  <%= form.submit %>
-</div>
+<ul>
+	<%= form.fields_for :technologies do |technology_form|%> 
+	<li>
+	  <%= technology_form.label :name %>
+		<%= technology_form.text_field :name %>
+	</li>
+	<% end %>
+</ul>
+<pc aslslas></pc>
+<div class="actions"><%= form.submit %></div>
 <% end %>
+pe
